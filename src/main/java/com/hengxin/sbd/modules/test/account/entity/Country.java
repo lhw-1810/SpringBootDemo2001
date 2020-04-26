@@ -245,5 +245,5 @@ public class Country {
 				+ ", timeZone=" + timeZone + ", languageId=" + languageId + ", currencyId=" + currencyId
 				+ ", dateModified=" + dateModified + ", dateCreated=" + dateCreated + ", cities=" + cities + "]";
 	}
-	
+
 }

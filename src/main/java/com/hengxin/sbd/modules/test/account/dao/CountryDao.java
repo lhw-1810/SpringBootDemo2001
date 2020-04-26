@@ -15,13 +15,14 @@ import com.hengxin.sbd.modules.test.account.entity.Country;
 public interface CountryDao {
 
 	@Select("select * from m_country where country_id = #{countryId}")
-	@Results(id = "countryInfo" ,value = {
-			@Result(column = "country_id", property = "countryId"),
-			@Result(column = "country_id", property = "countryId",
+	// 封装结果集
+	@Results(id = "countryInfo", value = {
+			@Result(column = "country_id" , property = "countryId"),
+			@Result(column = "country_id" , property = "cities",
 					javaType = List.class,
-					many = @Many(select = "com.hengxin.sbd.modules.test.account.dao.CityDao.selectCitiesByCountryId")
-					)
+					many = @Many(select = "com.hengxin.sbd.modules.test.account.dao.CityDao.selectCitiesByCountryId"))
 	})
+	
 	Country getCountryById(Integer countryId);
 	
 	@Select("select * from m_country where country_name = #{countryName}")
